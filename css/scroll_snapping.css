@@ -91,50 +91,44 @@ h2.section-title {
   display: table;
 }
 
-.section-wrap {
-  scroll-snap-type: mandatory;
-	scroll-snap-points-y: repeat(100vh);
-	scroll-snap-type: y mandatory;
-  overflow: scroll;
+.story-wrap {
+  /*height: 100vh;*/
+}
+
+.story {
   height: 100vh;
 }
 
-.section {
-  height: 100vh;
-  scroll-snap-align: start;
-  position: relative;
-}
-
-.section.top {
+.story .image {
   background: #000;
   position: relative;
 }
 
-.section.top img {
+.story img {
   opacity: 0.5;
 }
 
-.section.white {
+.story.white {
   background: #fff;
 }
 
-.section.gray {
+.story.gray {
   background: #F5F5F8;
 }
 
-.section.blue {
+.story.blue {
   background: #343F49;
 }
 
-.section.blue h2.section-title {
+.story.blue h2.section-title {
   color: #fff;
 }
 
-.section.blue .section-text {
+.story.blue .section-text {
   color: #fff;
 }
 
-.section.main .text-wrap {
+.story.main .text-wrap {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -161,4 +155,67 @@ h2.section-title {
   60% {
     transform: translateY(-15px) rotate(45deg);
   }
+}
+
+.image-section {
+  margin-top: 0;
+  position: relative;
+}
+
+.image-section.header {
+  transition: opacity 1s,visibility 1s 1s;
+}
+
+.image-section .image-wrap {
+  min-height: 120vh;
+  width: 90%;
+  max-width: 140vh;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  position: relative;
+}
+
+.image-section .image-wrap.fade-out {
+  transition: opacity 1s, visibility 1s 0s;
+}
+
+.image-section .image-wrap .image {
+  position: fixed;
+  width: auto;
+  height: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.image-section .image-wrap .image img {
+  opacity: 0.5;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  transition: -webkit-transform 1s,opacity 1s;
+  transition: transform 1s,opacity 1s;
+  display: block;
+}
+
+.image-section.inviewport .image-wrap {
+  opacity: 1;
+  visibility: visible;
 }
