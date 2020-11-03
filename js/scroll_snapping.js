@@ -13,6 +13,7 @@ jQuery(function($){
         easing: 'swing',
         speed: 200,
         containerscroll: function() {
+
           currentScroll = this._totalScrollComplete;
           if (currentScroll > lastScroll) {
             scrollDirection = 'down';
@@ -23,18 +24,14 @@ jQuery(function($){
           lastScroll = currentScroll;
 
           var activeItem = this.getActiveItem();
+          console.log(activeItem);
           var nextIndex = activeItem.index + 1;
           if (nextIndex < this._items.length) {
-            if (activeItem.el.hasClass('image-section') &&
-                !activeItem.el.hasClass('header') &&
-               (scrollDirection == 'down')) {
-
-
-               // don't auto scroll if in mobile
-               if (window.innerWidth > 767) {
-                 this.next();
-               }
-
+            if (scrollDirection == 'down' && activeItem.percentScrollComplete > 0.05) {
+              this.next();
+            }
+            else if (scrollDirection == 'up' && activeItem.percentScrollComplete < 0.95) {
+              this.index(activeItem.index);
             }
           }
 
