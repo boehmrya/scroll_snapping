@@ -38,12 +38,12 @@ h2.section-title {
   color: #343F49;
 }
 
-.story.top {
+.story.image-section {
   background: #000;
   position: relative;
 }
 
-.story.top::before {
+.story.image-section::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -55,14 +55,21 @@ h2.section-title {
   content: "";
 }
 
-.story.top .image-wrap {
-  background-image: url('../images/bb_numbers_header.jpg');
+.story.image-section .image-wrap {
   background-size: cover!important;
   background-attachment: fixed;
   background-position: 50%;
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
+}
+
+.story.top.image-section .image-wrap {
+  background-image: url('../images/bb_numbers_header.jpg');
+}
+
+.story.mid.image-section .image-wrap {
+  background-image: url('../images/city_view.jpg');
 }
 
 .section-text {
@@ -147,11 +154,13 @@ h2.section-title {
   background: #343F49;
 }
 
-.story.blue h2.section-title {
+.story.blue h2.section-title,
+.story.image-section h2.section-title {
   color: #fff;
 }
 
-.story.blue .section-text {
+.story.blue .section-text,
+.story.image-section .section-text {
   color: #fff;
 }
 
