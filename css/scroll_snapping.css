@@ -5,6 +5,11 @@ body {
   color: #343F49;
 }
 
+html, body {
+  height: 100vh;
+  overflow: hidden;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -86,9 +91,18 @@ h2.section-title {
   display: table;
 }
 
+.section-wrap {
+  scroll-snap-type: mandatory;
+	scroll-snap-points-y: repeat(100vh);
+	scroll-snap-type: y mandatory;
+  overflow: scroll;
+  height: 100vh;
+}
+
 .section {
   height: 100vh;
-  overflow: hidden;
+  scroll-snap-align: start;
+  position: relative;
 }
 
 .section.top {
